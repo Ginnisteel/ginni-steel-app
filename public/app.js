@@ -176,14 +176,18 @@
     return sizeObj.weightKg * bundles * sizeObj.ratePerKg;
   }
 
-  function sizeInfoText(sizeObj) {
+  function sizeInfoHtml(sizeObj) {
     if (!sizeObj) return "";
-    var parts = [];
-    if (sizeObj.pcs != null) parts.push(sizeObj.pcs + " pcs/bundle");
-    if (sizeObj.weightKg != null) parts.push(sizeObj.weightKg + " kg/bundle");
     var est = estimateAmount(sizeObj, 1);
-    if (est != null) parts.push("~" + formatRupees(est) + "/bundle (est.)");
-    return parts.join(" \u00b7 ");
+    var detailParts = [];
+    if (sizeObj.ratePerKg != null) detailParts.push(formatRupees(sizeObj.ratePerKg) + "/kg");
+    if (sizeObj.weightKg != null) detailParts.push(sizeObj.weightKg + " kg/bundle");
+    if (sizeObj.pcs != null) detailParts.push(sizeObj.pcs + " pcs/bundle");
+    var detail = detailParts.join(" \u00b7 ");
+    if (est == null) return detail ? '<div class="price-detail">' + detail + '</div>' : "";
+    return ''
+      + '<div class="price-est">~' + formatRupees(est) + ' <span class="price-label">estimated / bundle</span></div>'
+      + (detail ? '<div class="price-detail">' + detail + '</div>' : '');
   }
 
   function cartCount() {
@@ -220,7 +224,7 @@
           + ' data-rate="' + (s.ratePerKg == null ? "" : s.ratePerKg) + '"'
           + '>' + s.label + '</option>';
       }).join("");
-      var firstInfo = sizeInfoText(p.sizes[0]);
+      var firstInfo = sizeInfoHtml(p.sizes[0]);
       html +=
         '<div class="product-card">' +
         '  <div class="product-photo"><img src="' + p.image + '" alt="' + p.name + '" loading="lazy"></div>' +
@@ -295,7 +299,7 @@
         var pid = sel.dataset.pid;
         var opt = sel.selectedOptions[0];
         var infoEl = document.getElementById("info-" + pid);
-        if (infoEl) infoEl.textContent = sizeInfoText(readSizeOption(opt));
+        if (infoEl) infoEl.innerHTML = sizeInfoHtml(readSizeOption(opt));
       });
     });
     app.querySelectorAll(".qty-dec").forEach(function (btn) {
