@@ -70,33 +70,9 @@
     "image": "p3.jpg",
     "sizes": [
       {
-        "label": "12",
-        "pcs": 3,
-        "weightKg": 7.4,
-        "ratePerKg": 210
-      },
-      {
-        "label": "14",
-        "pcs": 3,
-        "weightKg": 7.4,
-        "ratePerKg": 210
-      },
-      {
-        "label": "16",
-        "pcs": 3,
-        "weightKg": 7.4,
-        "ratePerKg": 210
-      },
-      {
-        "label": "18",
-        "pcs": 3,
-        "weightKg": 7.4,
-        "ratePerKg": 210
-      },
-      {
-        "label": "20",
-        "pcs": 3,
-        "weightKg": 7.4,
+        "label": "14-18",
+        "pcs": 9,
+        "weightKg": 2.4667,
         "ratePerKg": 210
       }
     ]
@@ -108,16 +84,10 @@
     "image": "p4.jpg",
     "sizes": [
       {
-        "label": "14 to 18",
-        "pcs": null,
-        "weightKg": null,
-        "ratePerKg": null
-      },
-      {
-        "label": "14 to 20",
-        "pcs": null,
-        "weightKg": null,
-        "ratePerKg": null
+        "label": "14-18",
+        "pcs": 18,
+        "weightKg": 2.4667,
+        "ratePerKg": 198
       }
     ]
   },
