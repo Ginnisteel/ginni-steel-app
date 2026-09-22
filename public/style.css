@@ -102,8 +102,11 @@ p.page-sub { color: var(--ink-soft); margin: 0 0 22px; font-size: 14.5px; }
   background: var(--plate); border: 1px solid var(--border); border-radius: var(--radius);
   display: flex; flex-direction: column; gap: 10px; overflow: hidden; padding-bottom: 16px;
 }
-.product-photo { width: 100%; aspect-ratio: 16/8; background: var(--fog-deep); overflow: hidden; }
-.product-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.product-photo {
+  width: 100%; aspect-ratio: 4/3; background: var(--fog-deep); overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.product-photo img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .product-card .pname, .product-card .pcat, .product-card select, .product-card .size-info, .product-card .qty-row, .product-card .add-btn {
   margin-left: 16px; margin-right: 16px;
 }
