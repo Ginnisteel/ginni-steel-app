@@ -102,7 +102,7 @@ p.page-sub { color: var(--ink-soft); margin: 0 0 22px; font-size: 14.5px; }
   background: var(--plate); border: 1px solid var(--border); border-radius: var(--radius);
   display: flex; flex-direction: column; gap: 10px; overflow: hidden; padding-bottom: 16px;
 }
-.product-photo { width: 100%; aspect-ratio: 4/3; background: var(--fog-deep); overflow: hidden; }
+.product-photo { width: 100%; aspect-ratio: 16/8; background: var(--fog-deep); overflow: hidden; }
 .product-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .product-card .pname, .product-card .pcat, .product-card select, .product-card .size-info, .product-card .qty-row, .product-card .add-btn {
   margin-left: 16px; margin-right: 16px;
@@ -113,10 +113,13 @@ p.page-sub { color: var(--ink-soft); margin: 0 0 22px; font-size: 14.5px; }
   border: 1px solid var(--border); border-radius: 4px; padding: 8px 9px; font-size: 13.5px;
   background: var(--fog); color: var(--ink);
 }
-.size-info { margin-top: -4px; }
-.price-est { font-size: 14px; font-weight: 700; color: var(--signal); font-family: var(--font-head); }
-.price-est .price-label { font-family: var(--font-body); font-weight: 500; font-size: 11px; color: var(--ink-soft); text-transform: none; }
-.price-detail { font-size: 11.5px; color: var(--ink-soft); margin-top: 1px; }
+.size-info { margin-top: -2px; }
+.price-est {
+  font-size: 21px; font-weight: 700; color: var(--signal); font-family: var(--font-head);
+  background: rgba(217,88,31,0.09); border-radius: 4px; padding: 6px 8px; display: block;
+}
+.price-est .price-label { font-family: var(--font-body); font-weight: 600; font-size: 12px; color: var(--ink-soft); text-transform: none; display: block; margin-top: 1px; }
+.price-detail { font-size: 13.5px; color: var(--ink); font-weight: 500; margin-top: 5px; line-height: 1.5; }
 .qty-row { display: flex; align-items: center; gap: 10px; }
 .qty-label { font-size: 12px; color: var(--ink-soft); font-weight: 600; }
 .stepper { display: flex; align-items: center; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
