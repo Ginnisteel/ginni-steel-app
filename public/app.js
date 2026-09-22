@@ -99,7 +99,7 @@
       '    <button type="submit" class="btn-primary">Log in</button>' +
       (state.loginError ? '<div class="form-error">' + state.loginError + '</div>' : '') +
       '  </form>' +
-      '  <div class="login-hint">First time logging in? Use the temporary password your order desk gave you — you\u2019ll be asked to set a new one.</div>' +
+      '  <div class="login-hint">Customers: your password is the first word of your registered business name, in lowercase (e.g. "Aasirwal Bartan Store" \u2192 aasirwal).<br>Staff: use the login provided by your admin.</div>' +
       '</div>';
 
     document.getElementById("loginForm").addEventListener("submit", function (e) {

@@ -51,7 +51,7 @@ router.post('/change-password', requireAnyUser, (req, res) => {
   const hash = bcrypt.hashSync(newPassword, 10);
   const { type, id } = req.session.user;
   if (type === 'customer') {
-    db.prepare('UPDATE customers SET password_hash = ?, must_change_password = 0 WHERE id = ?').run(hash, id);
+    db.prepare('UPDATE customers SET password_hash = ?, must_change_password = 0, password_is_default = 0 WHERE id = ?').run(hash, id);
   } else {
     db.prepare('UPDATE staff SET password_hash = ?, must_change_password = 0 WHERE id = ?').run(hash, id);
   }

@@ -19,6 +19,8 @@ db.exec(`
     phone TEXT UNIQUE NOT NULL,
     password_hash TEXT NOT NULL,
     must_change_password INTEGER NOT NULL DEFAULT 1,
+    password_is_default INTEGER NOT NULL DEFAULT 1,
+    default_password_source TEXT,
     created_at TEXT NOT NULL DEFAULT (datetime('now'))
   );
 
@@ -88,6 +90,8 @@ ensureColumn('product_sizes', 'rate_per_kg', 'REAL');
 ensureColumn('order_items', 'weight_kg', 'REAL');
 ensureColumn('order_items', 'rate_per_kg', 'REAL');
 ensureColumn('order_items', 'estimated_amount', 'REAL');
+ensureColumn('customers', 'password_is_default', 'INTEGER NOT NULL DEFAULT 1');
+ensureColumn('customers', 'default_password_source', 'TEXT');
 
 function seedProducts() {
   // Always re-sync from catalog.json (not just on first run) so editing
@@ -114,22 +118,45 @@ function seedProducts() {
   console.log(`Synced ${catalog.length} products from catalog.json.`);
 }
 
+// Derives a default password from a customer's business name: the first
+// word, letters only, lowercase. "Aasirwal Bartan Store" -> "aasirwal".
+function passwordFromName(name) {
+  const firstToken = String(name).trim().split(/\s+/)[0] || '';
+  const lettersOnly = firstToken.replace(/[^A-Za-z]/g, '').toLowerCase();
+  return lettersOnly || (process.env.DEFAULT_CUSTOMER_PASSWORD || 'ginni123');
+}
+
 function seedCustomers() {
-  const count = db.prepare('SELECT COUNT(*) AS n FROM customers').get().n;
-  if (count > 0) return;
-
   const contacts = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'contacts.json'), 'utf8'));
-  const defaultPassword = process.env.DEFAULT_CUSTOMER_PASSWORD || 'ginni123';
-  const hash = bcrypt.hashSync(defaultPassword, 10);
-  const insert = db.prepare('INSERT OR IGNORE INTO customers (name, phone, password_hash, must_change_password) VALUES (?, ?, ?, 1)');
+  const getByPhone = db.prepare('SELECT id, password_is_default, default_password_source FROM customers WHERE phone = ?');
+  const insert = db.prepare(
+    'INSERT INTO customers (name, phone, password_hash, must_change_password, password_is_default, default_password_source) VALUES (?, ?, ?, 0, 1, ?)'
+  );
+  const updateDefault = db.prepare(
+    'UPDATE customers SET password_hash = ?, must_change_password = 0, default_password_source = ? WHERE id = ?'
+  );
 
-  let n = 0;
+  let created = 0;
+  let refreshed = 0;
   contacts.forEach((c) => {
-    insert.run(c.name, c.phone, hash);
-    n++;
+    const candidate = passwordFromName(c.name);
+    const existing = getByPhone.get(c.phone);
+    if (!existing) {
+      insert.run(c.name, c.phone, bcrypt.hashSync(candidate, 8), candidate);
+      created++;
+    } else if (existing.password_is_default && existing.default_password_source !== candidate) {
+      // Still on the auto-generated default, and the name-derived password
+      // has actually changed (e.g. contact list corrected) — only then is
+      // a fresh (slow) bcrypt hash worth doing. A customer who has
+      // personally set their own password (password_is_default = 0) is
+      // never touched here, and unchanged defaults are skipped entirely
+      // so redeploys stay fast.
+      updateDefault.run(bcrypt.hashSync(candidate, 8), candidate, existing.id);
+      refreshed++;
+    }
   });
 
-  console.log(`Seeded ${n} customers. Default password: "${defaultPassword}" (each customer should change it on first login).`);
+  console.log(`Customers: ${created} newly added, ${refreshed} refreshed to a new name-based default password.`);
 }
 
 function seedStaff() {
