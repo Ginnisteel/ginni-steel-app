@@ -131,6 +131,7 @@
       '  <p class="tag">This is your first login \u2014 choose a password only you know.</p>' +
       '  <form id="pwForm">' +
       '    <div class="field"><label>New password (min 6 characters)</label><input type="password" id="newPass" autocomplete="new-password" required minlength="6"></div>' +
+      '    <div class="field"><label>Confirm new password</label><input type="password" id="newPass2" autocomplete="new-password" required minlength="6"></div>' +
       '    <button type="submit" class="btn-primary">Save and continue</button>' +
       '    <div class="form-error" id="pwError"></div>' +
       '  </form>' +
@@ -139,6 +140,11 @@
     document.getElementById("pwForm").addEventListener("submit", function (e) {
       e.preventDefault();
       var newPassword = document.getElementById("newPass").value;
+      var newPassword2 = document.getElementById("newPass2").value;
+      if (newPassword !== newPassword2) {
+        document.getElementById("pwError").textContent = "Those two passwords don't match \u2014 please re-type them.";
+        return;
+      }
       api("/auth/change-password", { method: "POST", body: { newPassword: newPassword } })
         .then(function () {
           state.mustChangePassword = false;

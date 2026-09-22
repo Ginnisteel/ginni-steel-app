@@ -12,6 +12,12 @@ const customerRoutes = require('./routes/customers');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Render (and most hosts) terminate HTTPS at a proxy in front of the app,
+// then talk to the app itself over plain HTTP. Without this line, Express
+// can't tell the original request was secure, so a "secure" session cookie
+// never actually gets set — meaning logins silently fail to persist.
+app.set('trust proxy', 1);
+
 app.use(express.json());
 
 app.use(session({
