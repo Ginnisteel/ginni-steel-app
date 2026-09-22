@@ -1,0 +1,282 @@
+[
+  {
+    "id": "p1",
+    "name": "Fatka Balti",
+    "category": "Buckets",
+    "image": "p1.jpg",
+    "sizes": [
+      {
+        "label": "16",
+        "pcs": 56
+      },
+      {
+        "label": "18",
+        "pcs": 49
+      },
+      {
+        "label": "20",
+        "pcs": 42
+      },
+      {
+        "label": "22",
+        "pcs": 35
+      }
+    ]
+  },
+  {
+    "id": "p2",
+    "name": "Punching Balti",
+    "category": "Buckets",
+    "image": "p2.jpg",
+    "sizes": [
+      {
+        "label": "16",
+        "pcs": 52
+      },
+      {
+        "label": "18",
+        "pcs": 48
+      },
+      {
+        "label": "20",
+        "pcs": 48
+      },
+      {
+        "label": "22",
+        "pcs": 40
+      }
+    ]
+  },
+  {
+    "id": "p3",
+    "name": "Matka Pawali",
+    "category": "Pawali & Tubs",
+    "image": "p3.jpg",
+    "sizes": [
+      {
+        "label": "12",
+        "pcs": null
+      },
+      {
+        "label": "14",
+        "pcs": null
+      },
+      {
+        "label": "16",
+        "pcs": null
+      },
+      {
+        "label": "18",
+        "pcs": null
+      },
+      {
+        "label": "20",
+        "pcs": null
+      }
+    ]
+  },
+  {
+    "id": "p4",
+    "name": "Lightweight Pawali",
+    "category": "Pawali & Tubs",
+    "image": "p4.jpg",
+    "sizes": [
+      {
+        "label": "14 to 18",
+        "pcs": null
+      },
+      {
+        "label": "14 to 20",
+        "pcs": null
+      }
+    ]
+  },
+  {
+    "id": "p5",
+    "name": "Pawali",
+    "category": "Pawali & Tubs",
+    "image": "p5.jpg",
+    "sizes": [
+      {
+        "label": "12-18",
+        "pcs": null
+      },
+      {
+        "label": "20-24",
+        "pcs": null
+      },
+      {
+        "label": "26-30",
+        "pcs": null
+      }
+    ]
+  },
+  {
+    "id": "p6",
+    "name": "Tub",
+    "category": "Pawali & Tubs",
+    "image": "p6.jpg",
+    "sizes": [
+      {
+        "label": "2",
+        "pcs": 24
+      },
+      {
+        "label": "3",
+        "pcs": 19
+      },
+      {
+        "label": "4",
+        "pcs": 18
+      },
+      {
+        "label": "5",
+        "pcs": 17
+      },
+      {
+        "label": "6",
+        "pcs": 16
+      }
+    ]
+  },
+  {
+    "id": "p7",
+    "name": "Long Tub",
+    "category": "Pawali & Tubs",
+    "image": "p7.jpg",
+    "sizes": [
+      {
+        "label": "1",
+        "pcs": null
+      },
+      {
+        "label": "2",
+        "pcs": null
+      },
+      {
+        "label": "3",
+        "pcs": null
+      }
+    ]
+  },
+  {
+    "id": "p8",
+    "name": "Rashan Dibba",
+    "category": "Storage",
+    "image": "p8.jpg",
+    "sizes": [
+      {
+        "label": "12-18",
+        "pcs": null
+      },
+      {
+        "label": "20-24",
+        "pcs": null
+      },
+      {
+        "label": "26-30",
+        "pcs": null
+      }
+    ]
+  },
+  {
+    "id": "p9",
+    "name": "Kalsa — Painted",
+    "category": "Storage",
+    "image": "p9.jpg",
+    "sizes": [
+      {
+        "label": "1",
+        "pcs": 40
+      },
+      {
+        "label": "2",
+        "pcs": 40
+      },
+      {
+        "label": "3",
+        "pcs": 35
+      }
+    ]
+  },
+  {
+    "id": "p9b",
+    "name": "Kalsa — Plain",
+    "category": "Storage",
+    "image": "p9.jpg",
+    "sizes": [
+      {
+        "label": "1",
+        "pcs": 40
+      },
+      {
+        "label": "2",
+        "pcs": 40
+      },
+      {
+        "label": "3",
+        "pcs": 35
+      }
+    ]
+  },
+  {
+    "id": "p10",
+    "name": "Handa Gadha",
+    "category": "Storage",
+    "image": "p10.jpg",
+    "sizes": [
+      {
+        "label": "32 — Chota",
+        "pcs": 50
+      },
+      {
+        "label": "32 — Bada",
+        "pcs": 40
+      },
+      {
+        "label": "32 — Set",
+        "pcs": 42
+      },
+      {
+        "label": "36 — Chota",
+        "pcs": 40
+      },
+      {
+        "label": "36 — Bada",
+        "pcs": 35
+      },
+      {
+        "label": "36 — Set",
+        "pcs": 36
+      }
+    ]
+  },
+  {
+    "id": "p11",
+    "name": "Matka Gadha",
+    "category": "Storage",
+    "image": "p11.jpg",
+    "sizes": [
+      {
+        "label": "0",
+        "pcs": 20
+      },
+      {
+        "label": "1",
+        "pcs": 15
+      }
+    ]
+  },
+  {
+    "id": "p12",
+    "name": "Spoons",
+    "category": "Cutlery",
+    "image": "p12.jpg",
+    "sizes": [
+      {
+        "label": "Standard",
+        "pcs": null
+      }
+    ]
+  }
+]

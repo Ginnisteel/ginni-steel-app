@@ -1,0 +1,19 @@
+{
+  "name": "ginni-steel-app",
+  "version": "1.0.0",
+  "description": "Ginni Steel order desk — customer ordering + staff dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^13.0.3",
+    "dotenv": "^18.0.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0"
+  }
+}
