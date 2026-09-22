@@ -42,11 +42,13 @@ router.post('/', requireCustomer, (req, res) => {
       const weightKg = size && size.weight_kg != null ? size.weight_kg : null;
       const ratePerKg = size && size.rate_per_kg != null ? size.rate_per_kg : null;
       const pcs = size ? size.pcs_per_bundle : null;
-      // Estimated amount = weight per piece × pcs per bundle × bundles × rate/kg.
+      // Estimated amount = weight per bundle × bundles × rate/kg.
+      // weightKg is the TOTAL weight of one bundle (pcs is informational
+      // only, since pieces within a set/bundle can vary in weight).
       // This is an ESTIMATE ONLY — actual weight varies by ~2%, so the
       // final invoice is confirmed against the real dispatch weight.
-      const estimatedAmount = (weightKg != null && ratePerKg != null && pcs != null)
-        ? Math.round(weightKg * pcs * bundles * ratePerKg * 100) / 100
+      const estimatedAmount = (weightKg != null && ratePerKg != null)
+        ? Math.round(weightKg * bundles * ratePerKg * 100) / 100
         : null;
       insertItem.run(orderId, product.id, product.name, item.size, pcs, bundles, weightKg, ratePerKg, estimatedAmount);
     }

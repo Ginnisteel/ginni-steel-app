@@ -8,25 +8,25 @@
       {
         "label": "16",
         "pcs": 56,
-        "weightKg": 0.82,
+        "weightKg": 45.92,
         "ratePerKg": 225
       },
       {
         "label": "18",
         "pcs": 49,
-        "weightKg": 0.91,
+        "weightKg": 44.59,
         "ratePerKg": 225
       },
       {
         "label": "20",
         "pcs": 42,
-        "weightKg": 0.98,
+        "weightKg": 41.16,
         "ratePerKg": 225
       },
       {
         "label": "22",
         "pcs": 35,
-        "weightKg": 1.05,
+        "weightKg": 36.75,
         "ratePerKg": 225
       }
     ]
@@ -40,25 +40,25 @@
       {
         "label": "16",
         "pcs": 52,
-        "weightKg": 0.95,
+        "weightKg": 49.4,
         "ratePerKg": 225
       },
       {
         "label": "18",
         "pcs": 48,
-        "weightKg": 1.15,
+        "weightKg": 55.2,
         "ratePerKg": 225
       },
       {
         "label": "20",
         "pcs": 48,
-        "weightKg": 1.25,
+        "weightKg": 60.0,
         "ratePerKg": 225
       },
       {
         "label": "22",
         "pcs": 40,
-        "weightKg": 1.35,
+        "weightKg": 54.0,
         "ratePerKg": 225
       }
     ]
@@ -72,7 +72,7 @@
       {
         "label": "14-18",
         "pcs": 9,
-        "weightKg": 2.4667,
+        "weightKg": 22.2,
         "ratePerKg": 210
       }
     ]
@@ -86,7 +86,7 @@
       {
         "label": "14-18",
         "pcs": 18,
-        "weightKg": 2.4667,
+        "weightKg": 44.4,
         "ratePerKg": 198
       }
     ]
@@ -126,31 +126,31 @@
       {
         "label": "2",
         "pcs": 24,
-        "weightKg": 3.13,
+        "weightKg": 75.12,
         "ratePerKg": 198
       },
       {
         "label": "3",
         "pcs": 19,
-        "weightKg": 3.37,
+        "weightKg": 64.03,
         "ratePerKg": 198
       },
       {
         "label": "4",
         "pcs": 18,
-        "weightKg": 3.94,
+        "weightKg": 70.92,
         "ratePerKg": 198
       },
       {
         "label": "5",
         "pcs": 17,
-        "weightKg": 4.41,
+        "weightKg": 74.97,
         "ratePerKg": 198
       },
       {
         "label": "6",
         "pcs": 16,
-        "weightKg": 4.45,
+        "weightKg": 71.2,
         "ratePerKg": 198
       }
     ]
@@ -164,19 +164,19 @@
       {
         "label": "7",
         "pcs": 10,
-        "weightKg": 4.5,
+        "weightKg": 45.0,
         "ratePerKg": 203
       },
       {
         "label": "8",
         "pcs": 9,
-        "weightKg": 5.0,
+        "weightKg": 45.0,
         "ratePerKg": 203
       },
       {
         "label": "9",
         "pcs": 8,
-        "weightKg": 5.62,
+        "weightKg": 44.96,
         "ratePerKg": 203
       }
     ]
@@ -216,19 +216,19 @@
       {
         "label": "1",
         "pcs": 40,
-        "weightKg": 1.0,
+        "weightKg": 40.0,
         "ratePerKg": 275
       },
       {
         "label": "2",
         "pcs": 40,
-        "weightKg": 1.1,
+        "weightKg": 44.0,
         "ratePerKg": 275
       },
       {
         "label": "3",
         "pcs": 35,
-        "weightKg": 1.25,
+        "weightKg": 43.75,
         "ratePerKg": 275
       }
     ]
@@ -242,19 +242,19 @@
       {
         "label": "1",
         "pcs": 40,
-        "weightKg": 1.0,
+        "weightKg": 40.0,
         "ratePerKg": 265
       },
       {
         "label": "2",
         "pcs": 40,
-        "weightKg": 1.1,
+        "weightKg": 44.0,
         "ratePerKg": 265
       },
       {
         "label": "3",
         "pcs": 35,
-        "weightKg": 1.25,
+        "weightKg": 43.75,
         "ratePerKg": 265
       }
     ]
@@ -268,37 +268,37 @@
       {
         "label": "32 — Chota",
         "pcs": 50,
-        "weightKg": 0.75,
+        "weightKg": 37.5,
         "ratePerKg": 265
       },
       {
         "label": "32 — Bada",
         "pcs": 40,
-        "weightKg": 1.25,
+        "weightKg": 50.0,
         "ratePerKg": 265
       },
       {
         "label": "32 — Set",
         "pcs": 42,
-        "weightKg": 2.0,
+        "weightKg": 84.0,
         "ratePerKg": 265
       },
       {
         "label": "36 — Chota",
         "pcs": 40,
-        "weightKg": 0.9,
+        "weightKg": 36.0,
         "ratePerKg": 265
       },
       {
         "label": "36 — Bada",
         "pcs": 35,
-        "weightKg": 1.4,
+        "weightKg": 49.0,
         "ratePerKg": 265
       },
       {
         "label": "36 — Set",
         "pcs": 36,
-        "weightKg": 2.3,
+        "weightKg": 82.8,
         "ratePerKg": 265
       }
     ]
@@ -312,13 +312,13 @@
       {
         "label": "0",
         "pcs": 20,
-        "weightKg": 1.85,
+        "weightKg": 37.0,
         "ratePerKg": 230
       },
       {
         "label": "1",
         "pcs": 15,
-        "weightKg": 2.1,
+        "weightKg": 31.5,
         "ratePerKg": 230
       }
     ]

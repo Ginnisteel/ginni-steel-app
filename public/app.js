@@ -172,15 +172,15 @@
   }
 
   function estimateAmount(sizeObj, bundles) {
-    if (!sizeObj || sizeObj.weightKg == null || sizeObj.ratePerKg == null || sizeObj.pcs == null) return null;
-    return sizeObj.weightKg * sizeObj.pcs * bundles * sizeObj.ratePerKg;
+    if (!sizeObj || sizeObj.weightKg == null || sizeObj.ratePerKg == null) return null;
+    return sizeObj.weightKg * bundles * sizeObj.ratePerKg;
   }
 
   function sizeInfoText(sizeObj) {
     if (!sizeObj) return "";
     var parts = [];
     if (sizeObj.pcs != null) parts.push(sizeObj.pcs + " pcs/bundle");
-    if (sizeObj.weightKg != null) parts.push(sizeObj.weightKg + " kg/pc");
+    if (sizeObj.weightKg != null) parts.push(sizeObj.weightKg + " kg/bundle");
     var est = estimateAmount(sizeObj, 1);
     if (est != null) parts.push("~" + formatRupees(est) + "/bundle (est.)");
     return parts.join(" \u00b7 ");
