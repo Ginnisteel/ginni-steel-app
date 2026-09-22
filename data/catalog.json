@@ -7,19 +7,27 @@
     "sizes": [
       {
         "label": "16",
-        "pcs": 56
+        "pcs": 56,
+        "weightKg": 0.82,
+        "ratePerKg": 225
       },
       {
         "label": "18",
-        "pcs": 49
+        "pcs": 49,
+        "weightKg": 0.91,
+        "ratePerKg": 225
       },
       {
         "label": "20",
-        "pcs": 42
+        "pcs": 42,
+        "weightKg": 0.98,
+        "ratePerKg": 225
       },
       {
         "label": "22",
-        "pcs": 35
+        "pcs": 35,
+        "weightKg": 1.05,
+        "ratePerKg": 225
       }
     ]
   },
@@ -31,19 +39,27 @@
     "sizes": [
       {
         "label": "16",
-        "pcs": 52
+        "pcs": 52,
+        "weightKg": 0.95,
+        "ratePerKg": 225
       },
       {
         "label": "18",
-        "pcs": 48
+        "pcs": 48,
+        "weightKg": 1.15,
+        "ratePerKg": 225
       },
       {
         "label": "20",
-        "pcs": 48
+        "pcs": 48,
+        "weightKg": 1.25,
+        "ratePerKg": 225
       },
       {
         "label": "22",
-        "pcs": 40
+        "pcs": 40,
+        "weightKg": 1.35,
+        "ratePerKg": 225
       }
     ]
   },
@@ -55,23 +71,33 @@
     "sizes": [
       {
         "label": "12",
-        "pcs": null
+        "pcs": 3,
+        "weightKg": 7.4,
+        "ratePerKg": 210
       },
       {
         "label": "14",
-        "pcs": null
+        "pcs": 3,
+        "weightKg": 7.4,
+        "ratePerKg": 210
       },
       {
         "label": "16",
-        "pcs": null
+        "pcs": 3,
+        "weightKg": 7.4,
+        "ratePerKg": 210
       },
       {
         "label": "18",
-        "pcs": null
+        "pcs": 3,
+        "weightKg": 7.4,
+        "ratePerKg": 210
       },
       {
         "label": "20",
-        "pcs": null
+        "pcs": 3,
+        "weightKg": 7.4,
+        "ratePerKg": 210
       }
     ]
   },
@@ -83,11 +109,15 @@
     "sizes": [
       {
         "label": "14 to 18",
-        "pcs": null
+        "pcs": null,
+        "weightKg": null,
+        "ratePerKg": null
       },
       {
         "label": "14 to 20",
-        "pcs": null
+        "pcs": null,
+        "weightKg": null,
+        "ratePerKg": null
       }
     ]
   },
@@ -99,15 +129,21 @@
     "sizes": [
       {
         "label": "12-18",
-        "pcs": null
+        "pcs": null,
+        "weightKg": null,
+        "ratePerKg": null
       },
       {
         "label": "20-24",
-        "pcs": null
+        "pcs": null,
+        "weightKg": null,
+        "ratePerKg": null
       },
       {
         "label": "26-30",
-        "pcs": null
+        "pcs": null,
+        "weightKg": null,
+        "ratePerKg": null
       }
     ]
   },
@@ -119,23 +155,33 @@
     "sizes": [
       {
         "label": "2",
-        "pcs": 24
+        "pcs": 24,
+        "weightKg": 3.13,
+        "ratePerKg": 198
       },
       {
         "label": "3",
-        "pcs": 19
+        "pcs": 19,
+        "weightKg": 3.37,
+        "ratePerKg": 198
       },
       {
         "label": "4",
-        "pcs": 18
+        "pcs": 18,
+        "weightKg": 3.94,
+        "ratePerKg": 198
       },
       {
         "label": "5",
-        "pcs": 17
+        "pcs": 17,
+        "weightKg": 4.41,
+        "ratePerKg": 198
       },
       {
         "label": "6",
-        "pcs": 16
+        "pcs": 16,
+        "weightKg": 4.45,
+        "ratePerKg": 198
       }
     ]
   },
@@ -146,16 +192,22 @@
     "image": "p7.jpg",
     "sizes": [
       {
-        "label": "1",
-        "pcs": null
+        "label": "7",
+        "pcs": 10,
+        "weightKg": 4.5,
+        "ratePerKg": 203
       },
       {
-        "label": "2",
-        "pcs": null
+        "label": "8",
+        "pcs": 9,
+        "weightKg": 5.0,
+        "ratePerKg": 203
       },
       {
-        "label": "3",
-        "pcs": null
+        "label": "9",
+        "pcs": 8,
+        "weightKg": 5.62,
+        "ratePerKg": 203
       }
     ]
   },
@@ -167,15 +219,21 @@
     "sizes": [
       {
         "label": "12-18",
-        "pcs": null
+        "pcs": null,
+        "weightKg": null,
+        "ratePerKg": null
       },
       {
         "label": "20-24",
-        "pcs": null
+        "pcs": null,
+        "weightKg": null,
+        "ratePerKg": null
       },
       {
         "label": "26-30",
-        "pcs": null
+        "pcs": null,
+        "weightKg": null,
+        "ratePerKg": null
       }
     ]
   },
@@ -187,15 +245,21 @@
     "sizes": [
       {
         "label": "1",
-        "pcs": 40
+        "pcs": 40,
+        "weightKg": 1.0,
+        "ratePerKg": 275
       },
       {
         "label": "2",
-        "pcs": 40
+        "pcs": 40,
+        "weightKg": 1.1,
+        "ratePerKg": 275
       },
       {
         "label": "3",
-        "pcs": 35
+        "pcs": 35,
+        "weightKg": 1.25,
+        "ratePerKg": 275
       }
     ]
   },
@@ -207,15 +271,21 @@
     "sizes": [
       {
         "label": "1",
-        "pcs": 40
+        "pcs": 40,
+        "weightKg": 1.0,
+        "ratePerKg": 265
       },
       {
         "label": "2",
-        "pcs": 40
+        "pcs": 40,
+        "weightKg": 1.1,
+        "ratePerKg": 265
       },
       {
         "label": "3",
-        "pcs": 35
+        "pcs": 35,
+        "weightKg": 1.25,
+        "ratePerKg": 265
       }
     ]
   },
@@ -227,27 +297,39 @@
     "sizes": [
       {
         "label": "32 — Chota",
-        "pcs": 50
+        "pcs": 50,
+        "weightKg": 0.75,
+        "ratePerKg": 265
       },
       {
         "label": "32 — Bada",
-        "pcs": 40
+        "pcs": 40,
+        "weightKg": 1.25,
+        "ratePerKg": 265
       },
       {
         "label": "32 — Set",
-        "pcs": 42
+        "pcs": 42,
+        "weightKg": 2.0,
+        "ratePerKg": 265
       },
       {
         "label": "36 — Chota",
-        "pcs": 40
+        "pcs": 40,
+        "weightKg": 0.9,
+        "ratePerKg": 265
       },
       {
         "label": "36 — Bada",
-        "pcs": 35
+        "pcs": 35,
+        "weightKg": 1.4,
+        "ratePerKg": 265
       },
       {
         "label": "36 — Set",
-        "pcs": 36
+        "pcs": 36,
+        "weightKg": 2.3,
+        "ratePerKg": 265
       }
     ]
   },
@@ -259,11 +341,15 @@
     "sizes": [
       {
         "label": "0",
-        "pcs": 20
+        "pcs": 20,
+        "weightKg": 1.85,
+        "ratePerKg": 230
       },
       {
         "label": "1",
-        "pcs": 15
+        "pcs": 15,
+        "weightKg": 2.1,
+        "ratePerKg": 230
       }
     ]
   },
@@ -275,7 +361,9 @@
     "sizes": [
       {
         "label": "Standard",
-        "pcs": null
+        "pcs": null,
+        "weightKg": null,
+        "ratePerKg": null
       }
     ]
   }

@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/', requireAnyUser, (req, res) => {
   const products = db.prepare('SELECT * FROM products ORDER BY sort_order').all();
-  const sizeStmt = db.prepare('SELECT label, pcs_per_bundle AS pcs FROM product_sizes WHERE product_id = ? ORDER BY id');
+  const sizeStmt = db.prepare('SELECT label, pcs_per_bundle AS pcs, weight_kg AS weightKg, rate_per_kg AS ratePerKg FROM product_sizes WHERE product_id = ? ORDER BY id');
 
   const result = products.map((p) => ({
     id: p.id,

@@ -44,7 +44,9 @@ db.exec(`
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     product_id TEXT NOT NULL REFERENCES products(id),
     label TEXT NOT NULL,
-    pcs_per_bundle INTEGER
+    pcs_per_bundle INTEGER,
+    weight_kg REAL,
+    rate_per_kg REAL
   );
 
   CREATE TABLE IF NOT EXISTS orders (
@@ -63,24 +65,53 @@ db.exec(`
     product_name TEXT NOT NULL,
     size_label TEXT NOT NULL,
     pcs_per_bundle INTEGER,
-    bundles INTEGER NOT NULL
+    bundles INTEGER NOT NULL,
+    weight_kg REAL,
+    rate_per_kg REAL,
+    estimated_amount REAL
   );
 `);
 
-function seedProducts() {
-  const count = db.prepare('SELECT COUNT(*) AS n FROM products').get().n;
-  if (count > 0) return;
+// --- Migrations: the live database on Render already exists with the
+// older schema, so CREATE TABLE IF NOT EXISTS above won't add new columns
+// to it. Add any columns that are missing, without touching existing data.
+function ensureColumn(table, column, definition) {
+  const cols = db.prepare(`PRAGMA table_info(${table})`).all();
+  const exists = cols.some((c) => c.name === column);
+  if (!exists) {
+    db.exec(`ALTER TABLE ${table} ADD COLUMN ${column} ${definition}`);
+    console.log(`Migrated: added ${table}.${column}`);
+  }
+}
+ensureColumn('product_sizes', 'weight_kg', 'REAL');
+ensureColumn('product_sizes', 'rate_per_kg', 'REAL');
+ensureColumn('order_items', 'weight_kg', 'REAL');
+ensureColumn('order_items', 'rate_per_kg', 'REAL');
+ensureColumn('order_items', 'estimated_amount', 'REAL');
 
+function seedProducts() {
+  // Always re-sync from catalog.json (not just on first run) so editing
+  // that file and redeploying is enough to update products, sizes, pcs,
+  // weight, and rate — orders already placed keep their own snapshot in
+  // order_items, so this is safe to re-run on every deploy.
   const catalog = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'catalog.json'), 'utf8'));
-  const insertProduct = db.prepare('INSERT INTO products (id, name, category, image, sort_order) VALUES (?, ?, ?, ?, ?)');
-  const insertSize = db.prepare('INSERT INTO product_sizes (product_id, label, pcs_per_bundle) VALUES (?, ?, ?)');
+  const insertProduct = db.prepare('INSERT OR REPLACE INTO products (id, name, category, image, sort_order) VALUES (?, ?, ?, ?, ?)');
+  const insertSize = db.prepare('INSERT INTO product_sizes (product_id, label, pcs_per_bundle, weight_kg, rate_per_kg) VALUES (?, ?, ?, ?, ?)');
+  const deleteSizesFor = db.prepare('DELETE FROM product_sizes WHERE product_id = ?');
 
   catalog.forEach((p, i) => {
     insertProduct.run(p.id, p.name, p.category, p.image, i);
-    p.sizes.forEach((s) => insertSize.run(p.id, s.label, s.pcs === null ? null : s.pcs));
+    deleteSizesFor.run(p.id);
+    p.sizes.forEach((s) => insertSize.run(
+      p.id,
+      s.label,
+      s.pcs === null || s.pcs === undefined ? null : s.pcs,
+      s.weightKg === null || s.weightKg === undefined ? null : s.weightKg,
+      s.ratePerKg === null || s.ratePerKg === undefined ? null : s.ratePerKg
+    ));
   });
 
-  console.log(`Seeded ${catalog.length} products.`);
+  console.log(`Synced ${catalog.length} products from catalog.json.`);
 }
 
 function seedCustomers() {

@@ -2,6 +2,7 @@
 const express = require('express');
 const db = require('../db/init');
 const { requireCustomer, requireStaff } = require('../middleware/auth');
+const { sendOrderConfirmationSms } = require('../lib/sms');
 
 const router = express.Router();
 const STATUS_VALUES = ['new', 'processing', 'fulfilled'];
@@ -22,7 +23,7 @@ router.post('/', requireCustomer, (req, res) => {
     'INSERT INTO orders (order_code, customer_id, note, status) VALUES (?, ?, ?, ?)'
   );
   const insertItem = db.prepare(
-    'INSERT INTO order_items (order_id, product_id, product_name, size_label, pcs_per_bundle, bundles) VALUES (?, ?, ?, ?, ?, ?)'
+    'INSERT INTO order_items (order_id, product_id, product_name, size_label, pcs_per_bundle, bundles, weight_kg, rate_per_kg, estimated_amount) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'
   );
   const getProduct = db.prepare('SELECT * FROM products WHERE id = ?');
   const getSize = db.prepare('SELECT * FROM product_sizes WHERE product_id = ? AND label = ?');
@@ -38,7 +39,16 @@ router.post('/', requireCustomer, (req, res) => {
       if (!product) throw new Error(`Unknown product: ${item.productId}`);
       const size = getSize.get(item.productId, item.size);
       const bundles = Math.max(1, parseInt(item.bundles, 10) || 1);
-      insertItem.run(orderId, product.id, product.name, item.size, size ? size.pcs_per_bundle : null, bundles);
+      const weightKg = size && size.weight_kg != null ? size.weight_kg : null;
+      const ratePerKg = size && size.rate_per_kg != null ? size.rate_per_kg : null;
+      const pcs = size ? size.pcs_per_bundle : null;
+      // Estimated amount = weight per piece × pcs per bundle × bundles × rate/kg.
+      // This is an ESTIMATE ONLY — actual weight varies by ~2%, so the
+      // final invoice is confirmed against the real dispatch weight.
+      const estimatedAmount = (weightKg != null && ratePerKg != null && pcs != null)
+        ? Math.round(weightKg * pcs * bundles * ratePerKg * 100) / 100
+        : null;
+      insertItem.run(orderId, product.id, product.name, item.size, pcs, bundles, weightKg, ratePerKg, estimatedAmount);
     }
     return orderId;
   });
@@ -46,6 +56,12 @@ router.post('/', requireCustomer, (req, res) => {
   try {
     const orderId = tx();
     res.status(201).json({ id: orderId, orderCode });
+
+    const customer = db.prepare('SELECT phone FROM customers WHERE id = ?').get(req.session.user.id);
+    if (customer) {
+      // Fire-and-forget: never let SMS delivery delay or fail the order itself.
+      sendOrderConfirmationSms(customer.phone, orderCode);
+    }
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
