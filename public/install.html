@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Add Ginni Steel to Your Home Screen</title>
+<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --graphite: #16264B;
+    --fog: #FBF1E1;
+    --plate: #FFFFFF;
+    --signal: #D9581F;
+    --amber: #C99A3B;
+    --border: #E5D9BE;
+    --ink-soft: #5B6478;
+    --font-head: 'Baloo 2', sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--fog); color: var(--graphite); font-family: var(--font-body);
+    padding: env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0);
+  }
+  header {
+    background: var(--graphite); color: #fff; text-align: center; padding: 28px 20px 24px;
+    border-bottom: 3px solid var(--amber);
+  }
+  header img { width: 56px; height: 56px; border-radius: 50%; margin-bottom: 10px; }
+  header h1 { font-family: var(--font-head); font-size: 22px; margin: 0 0 4px; }
+  header p { margin: 0; font-size: 13.5px; color: #C7CDD1; }
+
+  main { max-width: 480px; margin: 0 auto; padding: 20px 18px 60px; }
+
+  .tabs { display: flex; gap: 8px; margin-bottom: 20px; }
+  .tab {
+    flex: 1; padding: 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--plate);
+    font-family: var(--font-head); font-weight: 600; font-size: 15px; color: var(--graphite);
+    text-align: center; cursor: pointer;
+  }
+  .tab.active { background: var(--signal); color: #fff; border-color: var(--signal); }
+
+  .steps { display: none; }
+  .steps.active { display: block; }
+
+  .step {
+    background: var(--plate); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px; margin-bottom: 14px; display: flex; gap: 14px; align-items: flex-start;
+  }
+  .step .num {
+    flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--amber);
+    color: #201400; font-family: var(--font-head); font-weight: 700; font-size: 15px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step .icon { font-size: 22px; margin-bottom: 4px; }
+  .step h3 { margin: 0 0 4px; font-size: 15.5px; font-family: var(--font-head); }
+  .step p { margin: 0; font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; }
+
+  .note {
+    background: rgba(201,154,59,0.15); border: 1px solid var(--amber); border-radius: 8px;
+    padding: 12px 14px; font-size: 13px; color: var(--graphite); margin-top: 6px; line-height: 1.5;
+  }
+
+  .cta {
+    display: block; text-align: center; background: var(--signal); color: #fff; text-decoration: none;
+    font-family: var(--font-head); font-weight: 700; font-size: 16px; padding: 14px; border-radius: 8px;
+    margin-top: 24px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="/images/logo.png" alt="Ginni Steel">
+  <h1>Add Ginni Steel to Your Home Screen</h1>
+  <p>Takes 30 seconds \u2014 do this once and it stays on your phone like any other app</p>
+</header>
+
+<main>
+  <div class="tabs">
+    <div class="tab active" data-target="iphone">\ud83d\udcf1 iPhone</div>
+    <div class="tab" data-target="android">\ud83e\udd16 Android</div>
+  </div>
+
+  <div class="steps active" id="iphone">
+    <div class="step">
+      <div class="num">1</div>
+      <div><h3><span class="icon">\ud83e\udded</span> Open in Safari</h3>
+        <p>Go to <strong>ginni-steel-app.onrender.com</strong> using the Safari app (the blue compass). This only works in Safari, not Chrome, on iPhone.</p></div>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <div><h3><span class="icon">\u2b06\ufe0f</span> Tap the Share button</h3>
+        <p>At the bottom (or top) of the screen, tap the square icon with an arrow pointing up.</p></div>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <div><h3><span class="icon">\u2795</span> Tap "Add to Home Screen"</h3>
+        <p>Scroll down the list of options and tap it \u2014 it has a small "+" icon next to it.</p></div>
+    </div>
+    <div class="step">
+      <div class="num">4</div>
+      <div><h3><span class="icon">\u2705</span> Tap "Add"</h3>
+        <p>Confirm in the top-right corner. The Ginni Steel icon now appears on your home screen.</p></div>
+    </div>
+  </div>
+
+  <div class="steps" id="android">
+    <div class="step">
+      <div class="num">1</div>
+      <div><h3><span class="icon">\ud83c\udf10</span> Open in Chrome</h3>
+        <p>Go to <strong>ginni-steel-app.onrender.com</strong> using the Chrome app.</p></div>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <div><h3><span class="icon">\u22ee</span> Tap the menu (\u22ee)</h3>
+        <p>Top-right corner of the screen \u2014 three dots stacked vertically.</p></div>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <div><h3><span class="icon">\ud83d\udcf2</span> Tap "Install app" or "Add to Home screen"</h3>
+        <p>Whichever wording your Chrome shows \u2014 both do the same thing.</p></div>
+    </div>
+    <div class="step">
+      <div class="num">4</div>
+      <div><h3><span class="icon">\u2705</span> Tap "Install" or "Add"</h3>
+        <p>The Ginni Steel icon now appears on your home screen, ready to use.</p></div>
+    </div>
+  </div>
+
+  <div class="note">\ud83d\udca1 Once added, just tap the Ginni Steel icon any time \u2014 it opens straight to your order screen, full-screen, without any browser bar.</div>
+
+  <a class="cta" href="/">Continue to Ginni Steel \u2192</a>
+</main>
+
+<script>
+  document.querySelectorAll('.tab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      document.querySelectorAll('.tab').forEach(function (t) { t.classList.remove('active'); });
+      document.querySelectorAll('.steps').forEach(function (s) { s.classList.remove('active'); });
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.target).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
